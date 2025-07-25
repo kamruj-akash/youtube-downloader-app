@@ -53,10 +53,10 @@ export default function YoutubeDownloader() {
       return;
     }
 
-    // Basic URL validation
+    // Correct URL validation
     if (
-      !youtubeLink.includes("http://googleusercontent.com/youtube.com/8") &&
-      !youtubeLink.includes("http://googleusercontent.com/youtube.com/9")
+      !youtubeLink.includes("youtube.com") &&
+      !youtubeLink.includes("youtu.be")
     ) {
       setErrorMessage("Please enter a valid YouTube video link.");
       return;
@@ -98,10 +98,11 @@ export default function YoutubeDownloader() {
       setErrorMessage("Please enter a valid link and select a quality.");
       return;
     }
-    // Basic URL validation
+
+    // Correct URL validation
     if (
-      !youtubeLink.includes("youtube.com/watch?v=0") &&
-      !youtubeLink.includes("youtube.com/watch?v=1")
+      !youtubeLink.includes("youtube.com") &&
+      !youtubeLink.includes("youtu.be")
     ) {
       setErrorMessage("Please enter a valid YouTube video link.");
       return;
@@ -150,7 +151,7 @@ export default function YoutubeDownloader() {
           </Label>
           <Input
             id="youtube-link"
-            placeholder="e.g., youtube.com/watch?v=2"
+            placeholder="e.g., https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             value={youtubeLink}
             onChange={(e) => setYoutubeLink(e.target.value)}
             className="h-12 text-base border-2 border-gray-300 focus:border-purple-500 focus:ring-purple-500 transition-all duration-300 shadow-sm"
