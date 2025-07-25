@@ -1,7 +1,7 @@
 // File: youtube-downloader-app/app/api/download/route.ts
 
 import { NextRequest, NextResponse } from "next/server";
-import ytdl from "ytdl-core";
+import ytdl from "@distube/ytdl-core"; // শুধু এই লাইনটি পরিবর্তন হয়েছে
 
 export async function GET(req: NextRequest) {
   try {
@@ -32,7 +32,6 @@ export async function GET(req: NextRequest) {
       quality: type === "audio" ? "highestaudio" : quality,
     });
 
-    // ytdl-core stream is a Node.js readable stream. We need to convert it to a Web Stream for Next.js Edge/Serverless functions.
     const webStream = new ReadableStream({
       start(controller) {
         stream.on("data", (chunk) => {
